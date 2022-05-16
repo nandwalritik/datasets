@@ -3467,8 +3467,8 @@ class Dataset(DatasetInfoMixin, IndexableMixin, TensorflowDatasetMixin):
         else:
             # stratified partition
             if stratify is not None:
-                if not isinstance(stratify, datasets.ClassLabel):
-                    raise ValueError(f"Invalid value for stratify: {stratify} of type {type(stratify)}")
+                # if not isinstance(stratify, datasets.ClassLabel):
+                #     raise ValueError(f"Invalid value for stratify: {stratify} of type {type(stratify)}")
                 train_indices, test_indices = next(
                     stratified_shuffle_split_generate_indices(
                         self.with_format("numpy")[stratify], stratify, n_train, n_test, rng=generator
